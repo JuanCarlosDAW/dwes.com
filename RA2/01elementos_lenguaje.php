@@ -19,7 +19,23 @@ echo"<p>Esto es un parrafo HTML enviado con echo</p>";
 $nombre="Juan";
 
 echo "<p>Hola, $nombre, como estas?</p>";
+echo "<p>Hola, $nombre, como estas?</p>";
 
+//Quiero un salto de linea al final de la linea
+echo "<p>Hola, esta linea acaba en un salto\n</p>";
+echo "Supuestamente esta linea es la siguiente a la anterior \n y esta va despues"
+?>
+
+<!--Uso habitual de echo abreciado es en los formularios-->
+<input type="text" size="30" name="nombre" id="nombre" value="<?=$nombre?>">
+<input type="checkbox" name="portatil" id="portatil" <?=$tiene_portatil ? "checked" : ""?>>
+
+<h2>Conversiones de tipos</h2>
+<?php
+$cadena ="25";
+$numero=8;
+$resultado= $cadena + $numero +$boleano;
+echo "<p>El resultado es $resultado</p>"
 ?>
 </body>
 </html>
