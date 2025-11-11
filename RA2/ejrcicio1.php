@@ -1,21 +1,36 @@
 <?php
-// Función que verifica si un número es primo
-function esPrimo($numero) {
-    if ($numero <= 1) {
-        return false;
+// Rellenar la matriz con valores aleatorios
+$filas = 10;
+$columnas = 20;
+$matriz = array();
+for ($i = 0; $i < $filas; $i++) {
+    for ($j = 0; $j < $columnas; $j++) {
+        $matriz[$i][$j] = rand(1, 100);
     }
-    for ($i = 2; $i <= sqrt($numero); $i++) {
-        if ($numero % $i == 0) {
-            return false;
+}
+// Generar un número aleatorio para buscar
+$numeroBuscado = rand(1, 100);
+$encontrado = false;
+$posiciones = array();
+// Buscar el número en la matriz
+for ($i = 0; $i < $filas; $i++) {
+    for ($j = 0; $j < $columnas; $j++) {
+        if ($matriz[$i][$j] == $numeroBuscado) {
+            $encontrado = true;
+            $posiciones[] = "Fila: $i, Columna: $j";
         }
     }
-    return true;
 }
-
-// Mostrar todos los números primos menores que 1000
-for ($i = 2; $i < 1000; $i++) {
-    if (esPrimo($i)) {
-        echo $i . "\n";
+// Mostrar resultados
+echo "Número buscado: $numeroBuscado<br>";
+if ($encontrado) {
+    echo "Número encontrado en las siguientes posiciones:<br>";
+    foreach ($posiciones as $posicion) {
+        echo $posicion . "<br>";
     }
+} else {
+    echo "Número no encontrad en la matriz.";
 }
 ?>
+
+
